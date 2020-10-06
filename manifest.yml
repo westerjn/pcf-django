@@ -2,4 +2,4 @@
 applications:
 - name: warapp
   memory: 1G
-  buildpacks: python_buildpack
+  buildpack: python_buildpack
