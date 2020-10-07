@@ -54,7 +54,7 @@ MIDDLEWARE = [
 ]
 
 # ROOT_URLCONF = 'warapp.urls'
-ROOT_URLCONF = 'app.urls'
+ROOT_URLCONF = 'dcsapp.urls'
 
 TEMPLATES = [
     {
