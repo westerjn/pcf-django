@@ -1,0 +1,4 @@
+---
+applications:
+- name: dcsdemo
+  memory: 1G
