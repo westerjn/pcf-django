@@ -1,0 +1,5 @@
+---
+applications:
+- name: dcsapp
+  memory: 1G
+  buildpack: python_buildpack
