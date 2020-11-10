@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+<head>
+	<title>cheeseburger CDN</title>
+   
+	<link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="http://www.datatables.net/rss.xml">               
+	<link rel="stylesheet" type="text/css" href="./jquery.dataTables.min.css">
+	<link rel="stylesheet" type="text/css" href="./dataTables.css">
+	<style type="text/css" class="init">
+		#appcontainer {
+			padding:40px 40px 40px 40px;
+		}
+	</style>
+   
+	<script type="text/javascript" src="jquery-3.3.1.js"></script>
+	<script type="text/javascript" src="bootstrap.min.js"></script>
+	<script type="text/javascript" src="jquery.dataTables.js"></script>
+	<script type="text/javascript" src="ecobar.min.js"></script>
+                               
+</head>
+ 
+  <body>
+	<div class="container" id="appcontainer">
+		<h3>cheeseburger attack tool</h3>
+									   
+		<hr/>
+	   
+		<table id="example" class="display" width="100%"></table>
+	</div>
+  </body>
+ 
+  <script>
+ 
+ 
+var doclist = [
+"./app/facebook/scripts.min.js",
+"./app/amazon/test-1.js",
+"./app/netflix/demo-1.js",
+"./lib/google/demo-2.js"
+];
+ 
+$(document).ready(function() {
+	var bugarr = [];
+	for(i=0; i<doclist.length; i++) {
+		var wardatum = [];
+	   
+		wardatum.push(doclist[i].substring(doclist[i].lastIndexOf("/")+1, doclist[i].length-3));
+		if(doclist[i].indexOf("css") != -1) {
+			wardatum.push("css");
+		} else {
+			wardatum.push("js");
+		}                             
+		wardatum.push(doclist[i].substring(0, doclist[i].lastIndexOf("/")).substring(doclist[i].substring(0, doclist[i].lastIndexOf("/")).lastIndexOf("/")+1, doclist[i].substring(0, doclist[i].lastIndexOf("/")).length));
+					   
+		if(doclist[i].indexOf("min") != -1) {
+			wardatum.push("min");
+		} else {
+			wardatum.push("dev");
+		}
+		wardatum.push("http://cdn.cheeseburger.org" + doclist[i].substring(1, doclist[i].length));
+	   console.log(wardatum.libname +'||'+ wardatum.libtype +'||'+ wardatum.libvrsn +'||'+ wardatum.libpckg +'||'+ wardatum.liblink);
+
+	   
+		bugarr.push(wardatum);
+	}
+	// var jsonString = JSON.stringify(bugarr)
+               
+ 
+    $('#example').DataTable( {
+                                pageLength: 20,
+        data: bugarr,
+        columns: [
+            { title: "Library" },           
+            { title: "Library Type" },
+            { title: "Version" },
+            { title: "Package Type" },
+            { title: "URL" }
+        ]
+    } );
+               
+});
+ 
+ 
+var ecobarLocalConfig = {                    
+};
+
+</script>
+</html>
