@@ -1,0 +1,4 @@
+---
+applications:
+- name: twilight
+  memory: 1G
